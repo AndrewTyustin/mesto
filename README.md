@@ -18,5 +18,5 @@
 * Модульные окна с формой
 * «Живая» валидация форм
 ## Ссылки на проект и на макет:
-* [Проект на Github Pages](https://andrewtyustin.github.io/mesto/)
-* [Макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* [Проект на Github Pages](https://andrewtyustin.github.io/mesto/html)
+* [Макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?t=Ce7s8K5l6B47msHH-0)
