@@ -21,4 +21,4 @@
 * Удаление старых фото
 ## Ссылки на проект и на макет:
 * [Проект на Github Pages](https://andrewtyustin.github.io/mesto/)
-* [Макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?t=Ce7s8K5l6B47msHH-0)
+* [Макет в Figma](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=1140%3A291&t=BZxHTuvKw7YkCEmr-0)
