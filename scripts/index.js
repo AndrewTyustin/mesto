@@ -123,11 +123,6 @@ profileEditingIcon.addEventListener('click', openPopupProfile);
 
 iconAddCard.addEventListener('click', () => openPopup(popupCards));
 
-iconCloseButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
-});
-
 popupElements.forEach(popupElement => {
   popupElement.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close')) {
