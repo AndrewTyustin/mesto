@@ -100,6 +100,7 @@ const addNewCard = function (evt) {
   cardsArea.prepend(addCards(nameCardInput.value, linkCardInput.value));
   evt.target.reset()
   closePopup(popupCards);
+  toggleButtonState(formCards, popupSubmit, classListForm);
 }
 
 const renderInitialCards = function () {
@@ -115,7 +116,6 @@ const handleProfileFormSubmit = function (evt) {
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
   closePopup(popupProfile);
-  toggleButtonState(formCards, popupSubmit, classListForm);
 }
 
 
