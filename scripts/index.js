@@ -19,7 +19,6 @@ const nameCardInput = popupCards.querySelector('#place-name-input');
 const descriptionInput = popupProfile.querySelector('#description-input');
 const linkCardInput = popupCards.querySelector('#place-image-input');
 const cardsArea = document.querySelector('.cards');
-const iconCloseButtons = document.querySelectorAll('.popup__close');
 const popupElements = document.querySelectorAll('.popup');
 
 
@@ -56,8 +55,7 @@ const addNewCard = function (evt) {
   }, '#card-template'));
   evt.target.reset();
   closePopup(popupCards);
-  popupSubmitButton.setAttribute('disabled', 'true');
-  popupSubmitButton.classList.add(classListForm.inactiveButtonClass)
+  addCardValidate.disableSubmitButton();
 }
 
 const renderInitialCards = function () {
