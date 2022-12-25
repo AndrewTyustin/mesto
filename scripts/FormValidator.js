@@ -40,13 +40,12 @@ class FormValidator {
       return !inputItem.validity.valid;
     });
   }
+
   enableValidationCheck() {
-    const formList = Array.from(document.querySelectorAll(this._object.formSelector));
-    formList.forEach((formItem) => {
-      this._setEventListeners(formItem);
-    });
+    this._setEventListeners();
   }
-  _toggleButtonState() {
+
+    _toggleButtonState() {
     if (this._hasInvalidInput()) {
         this._submitElement.setAttribute('disabled', 'true');
         this._submitElement.classList.add(this._object.inactiveButtonClass);

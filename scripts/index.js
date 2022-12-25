@@ -43,32 +43,30 @@ const closePopupThroughEsc = function (evt) {
   }
 }
 
+const renderCard = function (object, template) {
+  const card = new Card(object, template);
+  return card.makeCard();
+}
+
 const addNewCard = function (evt) {
   evt.preventDefault();
-  cardsArea.prepend(new Card({
+  cardsArea.prepend(renderCard({
     name: nameCardInput.value,
-    link: linkCardInput.value},
-    '#card-template').makeCard());
-  evt.target.reset()
+    link: linkCardInput.value
+  }, '#card-template'));
+  evt.target.reset();
   closePopup(popupCards);
-  new FormValidator(classListForm, formCards).enableValidationCheck();
+  popupSubmitButton.setAttribute('disabled', 'true');
+  popupSubmitButton.classList.add(classListForm.inactiveButtonClass)
 }
 
 const renderInitialCards = function () {
   objectListCard.forEach(function (card) {
-    cardsArea.append(new Card(card, '#card-template').makeCard());
+    cardsArea.append(renderCard(card, '#card-template'));
   });
 }
 
-const renderValidationCards = function () {
-  document.querySelectorAll(classListForm.formSelector).forEach(formElement => {
-    new FormValidator(classListForm, formElement).enableValidationCheck();
-  })
-}
-
-
 renderInitialCards();
-renderValidationCards ();
 
 const handleProfileFormSubmit = function (evt) {
   evt.preventDefault();
@@ -77,6 +75,11 @@ const handleProfileFormSubmit = function (evt) {
   closePopup(popupProfile);
 }
 
+
+const addCardValidate = new FormValidator(classListForm, popupCards);
+addCardValidate.enableValidationCheck();
+const editProfileValidate = new FormValidator(classListForm, formProfile);
+editProfileValidate.enableValidationCheck();
 
 profileEditingIcon.addEventListener('click', openPopupProfile);
 
