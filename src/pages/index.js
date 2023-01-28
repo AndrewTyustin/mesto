@@ -1,17 +1,16 @@
-import { objectListCard, classListForm } from './components/utils/objectList.js';
-import { FormValidator } from './components/FormValidator.js';
-import { Card } from './components/Card.js';
-import { Section } from './components/Section.js';
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import { UserInfo } from './components/UserInfo.js';
-import './pages/index.css';
+import { objectListCard, classListForm } from '../utils/objectList.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { Card } from '../components/Card.js';
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
+import './index.css';
 import {
   profileEditingIcon, iconAddCard,
-  popupCards, formProfile,
-  nameCardInput, linkCardInput,
+  formCards, formProfile,
   nameInput, descriptionInput
-} from './components/utils/constants.js';
+} from '../utils/constants.js';
 const popupImageZoom = new PopupWithImage('#image-popup');
 popupImageZoom.setEventListeners();
 const userInfo = new UserInfo({
@@ -31,41 +30,42 @@ popupEditeProfile.setEventListeners();
 const handleCardClick = function (name, image) {
   popupImageZoom.open(name, image);
 }
-const renderInitialCards = new Section({
-  items: objectListCard,
-  renderer: (cardData) => {
-    const card = new Card(cardData, '#card-template', handleCardClick);
-    renderInitialCards.addItem(card.makeCard());
-  }
-}, '.cards');
-renderInitialCards.renderItems();
 const renderCard = function (cardData) {
   const renderCardItem = new Card(cardData, '#card-template', handleCardClick);
   return renderCardItem.makeCard();
 }
+const renderInitialCards = new Section({
+  items: objectListCard,
+  renderer: (cardData) => {
+    renderInitialCards.addItem(renderCard(cardData));
+  }
+}, '.cards');
+renderInitialCards.renderItems();
 const popupAddCard = new PopupWithForm('#cards-popup', {
-  callbackFormSubmit: () => {
+  callbackFormSubmit: (formValues) => {
     renderInitialCards.addItem(renderCard({
-      name: nameCardInput.value,
-      link: linkCardInput.value
-    }, '#card-template', handleCardClick));
+      name: formValues.placename,
+      link: formValues.placeimage
+    }));
     popupAddCard.close();
   }
 });
 popupAddCard.setEventListeners();
-const addCardValidate = new FormValidator(classListForm, popupCards);
+const addCardValidate = new FormValidator(classListForm, formCards);
 addCardValidate.enableValidationCheck();
 const editProfileValidate = new FormValidator(classListForm, formProfile);
 editProfileValidate.enableValidationCheck();
 profileEditingIcon.addEventListener('click', function () {
   popupEditeProfile.open();
-  nameInput.setAttribute('value', userInfo.getUserInfo().username);
-  descriptionInput.setAttribute('value', userInfo.getUserInfo().description);
+  const actualUserInfo = userInfo.getUserInfo();
+  nameInput.setAttribute('value', actualUserInfo.username);
+  descriptionInput.setAttribute('value', actualUserInfo.description);
 });
 iconAddCard.addEventListener('click', function () {
   popupAddCard.open();
   addCardValidate.disableSubmitButton();
 });
+
 
 
 
