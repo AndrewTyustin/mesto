@@ -34,13 +34,16 @@ const renderCard = function (cardData) {
   const renderCardItem = new Card(cardData, '#card-template', handleCardClick);
   return renderCardItem.makeCard();
 }
+//согласно ТЗ необходимо создать класс Section
 const renderInitialCards = new Section({
   items: objectListCard,
+  //исправил на renderCard
   renderer: (cardData) => {
     renderInitialCards.addItem(renderCard(cardData));
   }
 }, '.cards');
 renderInitialCards.renderItems();
+//исправил название добавление карты с renderCard на popupAddCard
 const popupAddCard = new PopupWithForm('#cards-popup', {
   callbackFormSubmit: (formValues) => {
     renderInitialCards.addItem(renderCard({

@@ -8,6 +8,7 @@ class Popup {
   }
   close() {
     this._popupItem.classList.remove('popup_opened');
+    //исправил согласно вашим замечаниям
     document.removeEventListener('keydown', this._handleEscClose);
   }
   _handleEscClose = (evt) => {
