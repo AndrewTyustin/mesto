@@ -30,23 +30,23 @@ popupEditeProfile.setEventListeners();
 const handleCardClick = function (name, image) {
   popupImageZoom.open(name, image);
 }
-const renderCard = function (cardData) {
+const createCard = function (cardData) {
   const renderCardItem = new Card(cardData, '#card-template', handleCardClick);
   return renderCardItem.makeCard();
 }
 //согласно ТЗ необходимо создать класс Section
-const renderInitialCards = new Section({
+const cardsSection = new Section({
   items: objectListCard,
   //исправил на renderCard
   renderer: (cardData) => {
-    renderInitialCards.addItem(renderCard(cardData));
+    cardsSection.addItem(createCard(cardData));
   }
 }, '.cards');
-renderInitialCards.renderItems();
+cardsSection.renderItems();
 //исправил название добавление карты с renderCard на popupAddCard
 const popupAddCard = new PopupWithForm('#cards-popup', {
   callbackFormSubmit: (formValues) => {
-    renderInitialCards.addItem(renderCard({
+    cardsSection.addItem(createCard({
       name: formValues.placename,
       link: formValues.placeimage
     }));

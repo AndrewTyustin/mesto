@@ -8,8 +8,8 @@ class Card {
   _createCard() {
     return document.querySelector(this._template).content.querySelector('.cards__item').cloneNode(true);
   }
-  _likeCard = (event) => {
-    event.target.classList.toggle('cards__like_active');
+  _likeCard = () => {
+    this._likeIcon.classList.toggle('cards__like_active');
   }
   _deleteCard() {
     this._cardElement.remove();
@@ -28,7 +28,7 @@ class Card {
   }
   _addEventHandlers = () => {
     this._likeIcon.addEventListener('click', event => this._likeCard(event))
-    this._deleteIcon.addEventListener('click', event => this._deleteCard(event));
+    this._deleteIcon.addEventListener('click', () => this._deleteCard());
     this._elementImages.addEventListener('click', () => this._handleCardClick(this._name, this._image));
   }
 }
