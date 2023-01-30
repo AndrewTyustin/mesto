@@ -31,8 +31,8 @@ const handleCardClick = function (name, image) {
   popupImageZoom.open(name, image);
 }
 const createCard = function (cardData) {
-  const renderCardItem = new Card(cardData, '#card-template', handleCardClick);
-  return renderCardItem.makeCard();
+  const cardItemRender = new Card(cardData, '#card-template', handleCardClick);
+  return cardItemRender.makeCard();
 }
 //согласно ТЗ необходимо создать класс Section
 const cardsSection = new Section({
@@ -54,10 +54,10 @@ const popupAddCard = new PopupWithForm('#cards-popup', {
   }
 });
 popupAddCard.setEventListeners();
-const addCardValidate = new FormValidator(classListForm, formCards);
-addCardValidate.enableValidationCheck();
-const editProfileValidate = new FormValidator(classListForm, formProfile);
-editProfileValidate.enableValidationCheck();
+const cardAddValidate = new FormValidator(classListForm, formCards);
+cardAddValidate.enableValidationCheck();
+const profileEditValidate = new FormValidator(classListForm, formProfile);
+profileEditValidate.enableValidationCheck();
 profileEditingIcon.addEventListener('click', function () {
   popupEditeProfile.open();
   const actualUserInfo = userInfo.getUserInfo();
@@ -66,7 +66,7 @@ profileEditingIcon.addEventListener('click', function () {
 });
 iconAddCard.addEventListener('click', function () {
   popupAddCard.open();
-  addCardValidate.disableSubmitButton();
+  cardAddValidate.disableSubmitButton();
 });
 
 

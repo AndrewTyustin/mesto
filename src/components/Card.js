@@ -27,7 +27,7 @@ class Card {
     return this._cardElement;
   }
   _addEventHandlers = () => {
-    this._likeIcon.addEventListener('click', event => this._likeCard(event))
+    this._likeIcon.addEventListener('click', () => this._likeCard());
     this._deleteIcon.addEventListener('click', () => this._deleteCard());
     this._elementImages.addEventListener('click', () => this._handleCardClick(this._name, this._image));
   }
