@@ -21,3 +21,4 @@
 * Удаление старых фото
 ## Ссылки на проект и на макет:
 * [Проект на Github Pages](https://andrewtyustin.github.io/mesto/)
+* [Ссылка на сайт](https://andrewtyustin.github.io/mesto/)
