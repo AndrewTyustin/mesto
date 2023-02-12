@@ -26,5 +26,4 @@ class PopupWithForm extends Popup {
     this._popupFormItem.reset();
   }
 }
-
 export { PopupWithForm };
