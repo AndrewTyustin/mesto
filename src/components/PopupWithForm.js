@@ -5,9 +5,11 @@ class PopupWithForm extends Popup {
     super(popupSelector);
     this._callbackFormSubmit = callbackFormSubmit;
     this._popupFormItem = this._popupItem.querySelector('.popup__form');
+    this._inputList = Array.from(this._popupFormItem.querySelectorAll('.popup__input'));
+    this._sendButton = this._popupItem.querySelector('.popup__submit');
+    this._sendButtonText = this._sendButton.textContent;
   }
   _getInputValues() {
-    this._inputList = Array.from(this._popupFormItem.querySelectorAll('.popup__input'));
     this._formValues = {};
     this._inputList.forEach(inputItem => {
       this._formValues[inputItem.name] = inputItem.value;
@@ -20,6 +22,12 @@ class PopupWithForm extends Popup {
       evt.preventDefault();
       this._callbackFormSubmit(this._getInputValues());
     });
+  }
+  putSavingProcessText() {
+    this._sendButton.textContent = 'Сохранение...';
+  }
+  returnSavingProcessText() {
+    this._sendButton.textContent = this._sendButtonText;
   }
   close() {
     super.close();

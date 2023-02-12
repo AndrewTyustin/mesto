@@ -1,7 +1,6 @@
 class Popup {
   constructor(popupSelector) {
     this._popupItem = document.querySelector(popupSelector);
-    this._sendButton = this._popupItem.querySelector('.popup__submit');
   }
   open() {
     this._popupItem.classList.add('popup_opened');
@@ -15,12 +14,6 @@ class Popup {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
-  putSavingProcessText() {
-    this._sendButton.textContent = 'Сохранение...'
-  }
-  returnSavingProcessText() {
-    this._sendButton.textContent = 'Сохранить'
   }
   setEventListeners() {
     this._popupItem.addEventListener('mousedown', (evt) => {

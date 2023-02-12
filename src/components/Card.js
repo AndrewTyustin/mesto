@@ -17,6 +17,7 @@ class Card {
   }
   _deleteCard() {
     this._cardElement.remove();
+    this._cardElement = null;
   }
   renderCardLike(card) {
     this._likeArea = card.likes;
@@ -60,7 +61,7 @@ class Card {
     this._likeIcon.addEventListener('click', () => this._interactLike())
     this._elementImages.addEventListener('click', () => this._cardZoom(this._cardName, this._cardImage));
     if (this._userId === this._authorId) {
-      this._deleteIcon.addEventListener('click', () =>  this._cardDelete(this._cardElement, this._cardId, this._deleteCard));
+      this._deleteIcon.addEventListener('click', () =>  this._cardDelete(this, this._cardId));
     } else {
       this._deleteIcon.remove();
     }

@@ -1,8 +1,8 @@
 class UserInfo {
-  constructor({ usernameSelector, userDescriptionSelector }) {
+  constructor({ usernameSelector, userDescriptionSelector, userAvatarSelector }) {
     this._username = document.querySelector(usernameSelector);
     this._userDescription = document.querySelector(userDescriptionSelector);
-    this._avatarLink = document.querySelector('.profile__avatar');
+    this._avatarLink = document.querySelector(userAvatarSelector);
   }
   getUserInfo() {
     return {
