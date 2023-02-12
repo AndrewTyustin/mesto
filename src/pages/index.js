@@ -19,7 +19,8 @@ const apiConnect = new Api(apiFindings);
 let userId;
 const userInfo = new UserInfo({
   usernameSelector: '.profile__name',
-  userDescriptionSelector: '.profile__description'
+  userDescriptionSelector: '.profile__description',
+  userAvatarSelector: '.profile__avatar'
 });
 const renderCard = function (cardObject) {
   const renderCardItem = new Card(cardObject, '#card-template', userId, { cardId: cardObject._id, authorId: cardObject.owner._id, }, {
@@ -44,8 +45,7 @@ const renderCard = function (cardObject) {
   });
   return renderCardItem.makeCard();
 }
-const cardsSection = new Section({
-  items: objectListCard,
+const renderInitialCards  = new Section({
   renderer: (cardObject) => {
     renderInitialCards.addItem(renderCard(cardObject));
   }
