@@ -12,7 +12,7 @@ class PopupNotice extends Popup {
     super.open();
   }
   setEventListeners() {
-    this._submitButton.addEventListener('submit', (evt) => { evt.preventDefault(); this._callbackNotice(this._cardObject, this._cardId)})
+    this._submitButton.addEventListener('submit', (evt) => { evt.preventDefault(); this._callbackNotice(this._cardObject, this._cardId) })
     super.setEventListeners();
   }
 }

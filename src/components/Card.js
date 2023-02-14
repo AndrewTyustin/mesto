@@ -15,7 +15,7 @@ class Card {
   _createCard() {
     return document.querySelector(this._cardTemplate).content.querySelector('.cards__item').cloneNode(true);
   }
-  _deleteCard() {
+  deleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }
@@ -42,7 +42,6 @@ class Card {
       this._putLike(this._cardId);
     }
   }
-
   makeCard() {
     this._cardElement = this._createCard();
     this._elementImages = this._cardElement.querySelector('.cards__image');

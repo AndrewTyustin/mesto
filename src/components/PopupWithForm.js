@@ -10,11 +10,11 @@ class PopupWithForm extends Popup {
     this._sendButtonText = this._sendButton.textContent;
   }
   _getInputValues() {
-    this._formValues = {};
+    const formValues = {};
     this._inputList.forEach(inputItem => {
-      this._formValues[inputItem.name] = inputItem.value;
+      formValues[inputItem.name] = inputItem.value;
     });
-    return this._formValues;
+    return formValues;
   }
   setEventListeners() {
     super.setEventListeners();

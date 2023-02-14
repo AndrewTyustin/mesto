@@ -10,7 +10,6 @@ const popupAvatarEdit = document.querySelector('#avatar-popup');
 const popupAvatarEditForm = popupAvatarEdit.querySelector('.popup__form');
 const iconAvatarEdit = document.querySelector('.profile__avatar-edit');
 
-
 export {
   profileEditingIcon, iconAddCard,
   popupProfile, popupCards,

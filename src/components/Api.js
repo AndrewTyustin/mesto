@@ -20,7 +20,10 @@ class Api {
     return fetch(`${this._link}cards`, {
       headers: this._headers,
       method: 'POST',
-      body: JSON.stringify({ name, link })
+      body: JSON.stringify({
+        name: name,
+        link: link
+      })
     })
       .then(res => { return this._processingServerResponse(res); })
   }

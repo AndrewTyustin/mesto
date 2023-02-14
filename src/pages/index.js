@@ -93,14 +93,14 @@ const popupEditeProfile = new PopupWithForm('#profile-popup', {
 popupEditeProfile.setEventListeners();
 const popupAddCard = new PopupWithForm('#cards-popup', {
   callbackFormSubmit: (formValues) => { popupAddCard.putSavingProcessText(); apiConnect.addNewCard({ name: formValues.placename, link: formValues.placeimage })
-      .then((card) => {
-        renderInitialCards.addItem(renderCard(card));
-        popupAddCard.close();
-      })
-      .catch((err) => { console.log(`При добавлении новой карточки возникла ошибка, ${err}`) })
-      .finally(() => {
-        popupAddCard.returnSavingProcessText();
-      })
+    .then((card) => {
+      renderInitialCards.addItem(renderCard(card));
+      popupAddCard.close();
+    })
+    .catch((err) => { console.log(`При добавлении новой карточки возникла ошибка, ${err}`) })
+    .finally(() => {
+      popupAddCard.returnSavingProcessText();
+    })
   }
 });
 popupAddCard.setEventListeners();
@@ -125,8 +125,3 @@ iconAddCard.addEventListener('click', function () {
   popupAddCard.open();
   cardItemValidate.resetValidate();
 });
-
-
-
-
-
